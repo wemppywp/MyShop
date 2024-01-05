@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'package:myshop/common_widget/round_button.dart';
 
 class WelcomeView extends StatefulWidget {
   const WelcomeView({super.key});
@@ -8,6 +10,13 @@ class WelcomeView extends StatefulWidget {
 }
 
 class _WelcomeViewState extends State<WelcomeView> {
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle.light);
+  }
+
   @override
   Widget build(BuildContext context) {
     var media = MediaQuery.sizeOf(context);
@@ -19,6 +28,60 @@ class _WelcomeViewState extends State<WelcomeView> {
           width: media.width,
           height: media.height,
           fit: BoxFit.cover,
+        ),
+        SafeArea(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.end,
+            children: [
+              Image.asset(
+                "assets/images/app_logo.png",
+                width: 60,
+                height: 60,
+              ),
+              const SizedBox(
+                height: 8,
+              ),
+              const Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text(
+                    "Welcome\nto our store",
+                    style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 48,
+                        fontWeight: FontWeight.w600),
+                    textAlign: TextAlign.center,
+                  )
+                ],
+              ),
+              const Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text(
+                    "Get your groceries in as fast as one hour",
+                    style: TextStyle(
+                        color: Colors.white70,
+                        fontSize: 16,
+                        fontWeight: FontWeight.w500),
+                    textAlign: TextAlign.center,
+                  )
+                ],
+              ),
+              const SizedBox(
+                height: 28,
+              ),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 20),
+                child: RoundButton(
+                  title: "Get Started",
+                  onPressed: () {},
+                ),
+              ),
+              const SizedBox(
+                height: 46,
+              )
+            ],
+          ),
         )
       ]),
     );
