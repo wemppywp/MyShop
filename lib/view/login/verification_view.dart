@@ -60,7 +60,8 @@ class _VerificationViewState extends State<VerificationView> {
                     ),
                     LineTextField(
                         title: "Code",
-                        placeholder: "- - - -",
+                        placeholder: " - - - -",
+                        keyboardType: TextInputType.phone,
                         controller: txtOTP),
                     SizedBox(
                       height: media.height * 0.55,

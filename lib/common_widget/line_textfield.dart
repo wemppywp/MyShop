@@ -5,12 +5,16 @@ class LineTextField extends StatelessWidget {
   final TextEditingController controller;
   final String title;
   final String placeholder;
+  final TextInputType? keyboardType;
+  final bool obscureText;
   final Widget? right;
   const LineTextField(
       {super.key,
       required this.title,
       required this.placeholder,
       required this.controller,
+      required this.keyboardType,
+      this.obscureText = false,
       this.right});
 
   @override
@@ -31,7 +35,8 @@ class LineTextField extends StatelessWidget {
         ),
         TextField(
           controller: controller,
-          keyboardType: TextInputType.phone,
+          keyboardType: keyboardType,
+          obscureText: obscureText,
           decoration: InputDecoration(
             suffixIcon: right,
             border: InputBorder.none,

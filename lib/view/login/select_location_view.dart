@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:myshop/common/color_extension.dart';
 import 'package:myshop/common_widget/dropdown.dart';
 import 'package:myshop/common_widget/round_button.dart';
+import 'package:myshop/view/login/login_view.dart';
 
 class SelectLocationView extends StatefulWidget {
   const SelectLocationView({super.key});
@@ -11,8 +12,6 @@ class SelectLocationView extends StatefulWidget {
 }
 
 class _SelectLocationViewState extends State<SelectLocationView> {
-  TextEditingController txtOTP = TextEditingController();
-
   @override
   Widget build(BuildContext context) {
     var media = MediaQuery.sizeOf(context);
@@ -97,7 +96,14 @@ class _SelectLocationViewState extends State<SelectLocationView> {
                     SizedBox(
                       height: media.width * 0.1,
                     ),
-                    RoundButton(title: "Submit", onPressed: () {})
+                    RoundButton(
+                        title: "Submit",
+                        onPressed: () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => const LoginView()));
+                        })
                   ],
                 ),
               ),
