@@ -23,9 +23,9 @@ class LineTextField extends StatelessWidget {
           height: 15,
         ),
         Text(
-          "Code",
+          title,
           style: TextStyle(
-              color: TColor.secondaryText,
+              color: TColor.textTittle,
               fontSize: 16,
               fontWeight: FontWeight.w600),
         ),
