@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:myshop/common_widget/round_button.dart';
+import 'package:myshop/view/login/sign_in_view.dart';
 
 class WelcomeView extends StatefulWidget {
   const WelcomeView({super.key});
@@ -74,7 +75,12 @@ class _WelcomeViewState extends State<WelcomeView> {
                 padding: const EdgeInsets.symmetric(horizontal: 20),
                 child: RoundButton(
                   title: "Get Started",
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const SignInView()));
+                  },
                 ),
               ),
               const SizedBox(
