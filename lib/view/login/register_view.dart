@@ -155,10 +155,7 @@ class _RegisterViewState extends State<RegisterView> {
                                 color: TColor.primary,
                                 fontSize: 14,
                                 fontWeight: FontWeight.w500),
-                            recognizer: TapGestureRecognizer()
-                              ..onTap = () {
-                                print("Term of Serivce Clicked");
-                              },
+                            recognizer: TapGestureRecognizer()..onTap = () {},
                           ),
                           TextSpan(
                             text: " and ",
@@ -174,9 +171,7 @@ class _RegisterViewState extends State<RegisterView> {
                                   fontSize: 14,
                                   fontWeight: FontWeight.w500),
                               recognizer: TapGestureRecognizer()
-                                ..onTap = () {
-                                  print("Privacy Policy Clicked");
-                                }),
+                                ..onTap = () {}),
                         ])),
                     SizedBox(
                       height: media.width * 0.07,

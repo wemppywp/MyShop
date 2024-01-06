@@ -3,6 +3,7 @@ import 'package:myshop/common/color_extension.dart';
 import 'package:myshop/common_widget/line_textfield.dart';
 import 'package:myshop/common_widget/round_button.dart';
 import 'package:myshop/view/login/register_view.dart';
+import 'package:myshop/view/main_tabview/main_tabview.dart';
 
 class LoginView extends StatefulWidget {
   const LoginView({super.key});
@@ -130,7 +131,14 @@ class _LoginViewState extends State<LoginView> {
                     SizedBox(
                       height: media.width * 0.07,
                     ),
-                    RoundButton(title: "Log In", onPressed: () {}),
+                    RoundButton(
+                        title: "Log In",
+                        onPressed: () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => const MainTabView()));
+                        }),
                     SizedBox(
                       height: media.width * 0.02,
                     ),
