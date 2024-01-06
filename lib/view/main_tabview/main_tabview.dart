@@ -62,12 +62,12 @@ class _MainTabViewState extends State<MainTabView>
               labelColor: TColor.primary,
               labelStyle: TextStyle(
                   color: TColor.primary,
-                  fontSize: 12,
+                  fontSize: 10,
                   fontWeight: FontWeight.w600),
               unselectedLabelColor: TColor.primaryText,
               unselectedLabelStyle: TextStyle(
                   color: TColor.secondaryText,
-                  fontSize: 12,
+                  fontSize: 10,
                   fontWeight: FontWeight.w500),
               tabs: [
                 Tab(
