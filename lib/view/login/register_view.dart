@@ -1,19 +1,20 @@
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:myshop/common/color_extension.dart';
 import 'package:myshop/common_widget/line_textfield.dart';
 import 'package:myshop/common_widget/round_button.dart';
-import 'package:myshop/view/login/register_view.dart';
 
-class LoginView extends StatefulWidget {
-  const LoginView({super.key});
+class RegisterView extends StatefulWidget {
+  const RegisterView({super.key});
 
   @override
-  State<LoginView> createState() => _LoginViewState();
+  State<RegisterView> createState() => _RegisterViewState();
 }
 
-class _LoginViewState extends State<LoginView> {
+class _RegisterViewState extends State<RegisterView> {
   TextEditingController txtEmail = TextEditingController();
   TextEditingController txtPassword = TextEditingController();
+  TextEditingController txtUsername = TextEditingController();
 
   bool isShow = true;
 
@@ -65,10 +66,10 @@ class _LoginViewState extends State<LoginView> {
                       ],
                     ),
                     SizedBox(
-                      height: media.width * 0.2,
+                      height: media.width * 0.18,
                     ),
                     Text(
-                      "Login",
+                      "Sign Up",
                       textAlign: TextAlign.start,
                       style: TextStyle(
                           color: TColor.primaryText,
@@ -79,22 +80,41 @@ class _LoginViewState extends State<LoginView> {
                       height: media.width * 0.03,
                     ),
                     Text(
-                      "Enter your email and password",
+                      "Enter your credentials to continue",
                       style: TextStyle(
                           color: TColor.secondaryText,
                           fontSize: 16,
                           fontWeight: FontWeight.w500),
                     ),
                     SizedBox(
-                      height: media.width * 0.1,
+                      height: media.width * 0.03,
                     ),
                     LineTextField(
-                        title: "Email",
-                        placeholder: "Enter your email address",
-                        keyboardType: TextInputType.emailAddress,
-                        controller: txtEmail),
+                      title: "Username",
+                      placeholder: "Enter your username",
+                      keyboardType: TextInputType.name,
+                      controller: txtUsername,
+                    ),
                     SizedBox(
-                      height: media.width * 0.05,
+                      height: media.width * 0.03,
+                    ),
+                    LineTextField(
+                      title: "Email",
+                      placeholder: "Enter your email address",
+                      keyboardType: TextInputType.emailAddress,
+                      controller: txtEmail,
+                      right: IconButton(
+                          onPressed: () {
+                            setState(() {
+                              isShow = !isShow;
+                            });
+                          },
+                          icon: Icon(
+                              isShow ? Icons.visibility_off : Icons.visibility,
+                              color: TColor.textTittle)),
+                    ),
+                    SizedBox(
+                      height: media.width * 0.03,
                     ),
                     LineTextField(
                       title: "Password",
@@ -112,25 +132,56 @@ class _LoginViewState extends State<LoginView> {
                               isShow ? Icons.visibility_off : Icons.visibility,
                               color: TColor.textTittle)),
                     ),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.end,
-                      children: [
-                        TextButton(
-                          onPressed: () {},
-                          child: Text(
-                            "Forgot Password?",
+                    SizedBox(
+                      height: media.width * 0.02,
+                    ),
+                    RichText(
+                        text: TextSpan(
                             style: TextStyle(
-                                color: TColor.primaryText,
+                                color: TColor.secondaryText,
+                                fontSize: 14,
+                                fontWeight: FontWeight.w500),
+                            children: [
+                          TextSpan(
+                            text: "By continuing you agree to our ",
+                            style: TextStyle(
+                                color: TColor.secondaryText,
                                 fontSize: 14,
                                 fontWeight: FontWeight.w500),
                           ),
-                        )
-                      ],
-                    ),
+                          TextSpan(
+                            text: "Term of Serivce",
+                            style: TextStyle(
+                                color: TColor.primary,
+                                fontSize: 14,
+                                fontWeight: FontWeight.w500),
+                            recognizer: TapGestureRecognizer()
+                              ..onTap = () {
+                                print("Term of Serivce Clicked");
+                              },
+                          ),
+                          TextSpan(
+                            text: " and ",
+                            style: TextStyle(
+                                color: TColor.secondaryText,
+                                fontSize: 14,
+                                fontWeight: FontWeight.w500),
+                          ),
+                          TextSpan(
+                              text: "Privacy Policy.",
+                              style: TextStyle(
+                                  color: TColor.primary,
+                                  fontSize: 14,
+                                  fontWeight: FontWeight.w500),
+                              recognizer: TapGestureRecognizer()
+                                ..onTap = () {
+                                  print("Privacy Policy Clicked");
+                                }),
+                        ])),
                     SizedBox(
                       height: media.width * 0.07,
                     ),
-                    RoundButton(title: "Log In", onPressed: () {}),
+                    RoundButton(title: "Sign Up", onPressed: () {}),
                     SizedBox(
                       height: media.width * 0.02,
                     ),
@@ -138,18 +189,12 @@ class _LoginViewState extends State<LoginView> {
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         TextButton(
-                          onPressed: () {
-                            Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) =>
-                                        const RegisterView()));
-                          },
+                          onPressed: () {},
                           child: Row(
                             mainAxisSize: MainAxisSize.min,
                             children: [
                               Text(
-                                "Don't have an account?",
+                                "Already have an account?",
                                 style: TextStyle(
                                     color: TColor.primaryText,
                                     fontSize: 14,
@@ -159,7 +204,7 @@ class _LoginViewState extends State<LoginView> {
                                 width: 8,
                               ),
                               Text(
-                                "Sign Up",
+                                "Sign In",
                                 style: TextStyle(
                                     color: TColor.primary,
                                     fontSize: 14,
