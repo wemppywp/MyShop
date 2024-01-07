@@ -5,19 +5,23 @@ class ProductCell extends StatelessWidget {
   final Map pObj;
   final VoidCallback onPressed;
   final VoidCallback onCart;
+  final double margin;
+  final double weight;
   const ProductCell(
       {super.key,
       required this.pObj,
       required this.onPressed,
-      required this.onCart});
+      required this.onCart,
+      this.margin = 8,
+      this.weight = 180});
 
   @override
   Widget build(BuildContext context) {
     return InkWell(
       onTap: onPressed,
       child: Container(
-        width: 180,
-        margin: const EdgeInsets.symmetric(horizontal: 8),
+        width: weight,
+        margin: EdgeInsets.symmetric(horizontal: margin),
         padding: const EdgeInsets.all(15),
         decoration: BoxDecoration(
             color: Colors.white,
@@ -30,14 +34,11 @@ class ProductCell extends StatelessWidget {
             children: [
               Image.asset(
                 pObj["icon"],
-                width: 100,
+                width: 90,
                 height: 80,
                 fit: BoxFit.contain,
               ),
             ],
-          ),
-          const SizedBox(
-            height: 10,
           ),
           const Spacer(),
           Text(
@@ -46,9 +47,6 @@ class ProductCell extends StatelessWidget {
                 color: TColor.primaryText,
                 fontSize: 16,
                 fontWeight: FontWeight.w700),
-          ),
-          const SizedBox(
-            height: 2,
           ),
           Text(
             "${pObj["qty"]}${pObj["unit"]}",

@@ -102,7 +102,7 @@ class _SignInViewState extends State<SignInView> {
                                   child: countryCode.flagImage(),
                                 ),
                                 Text(
-                                  "$countryCode.dialCode",
+                                  "${countryCode.dialCode}",
                                   style: TextStyle(
                                     color: TColor.primaryText,
                                     fontSize: 18,
