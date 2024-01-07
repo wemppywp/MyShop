@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:myshop/common/color_extension.dart';
 import 'package:myshop/common_widget/explore_cell.dart';
 import 'package:myshop/view/explore/explore_details_view.dart';
+import 'package:myshop/view/explore/search_view.dart';
 
 class ExploreView extends StatefulWidget {
   const ExploreView({super.key});
@@ -67,31 +68,39 @@ class _ExploreViewState extends State<ExploreView> {
         children: [
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 20),
-            child: Container(
-              height: 45,
-              decoration: BoxDecoration(
-                  color: const Color(0xFFF2F3F2),
-                  borderRadius: BorderRadius.circular(15)),
-              alignment: Alignment.center,
-              child: Row(
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  Padding(
-                    padding: const EdgeInsets.all(13.0),
-                    child: Image.asset(
-                      "assets/images/search.png",
-                      width: 20,
-                      height: 20,
+            child: InkWell(
+              onTap: () {
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => const SearchView()));
+              },
+              child: Container(
+                height: 45,
+                decoration: BoxDecoration(
+                    color: const Color(0xFFF2F3F2),
+                    borderRadius: BorderRadius.circular(15)),
+                alignment: Alignment.center,
+                child: Row(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.all(13.0),
+                      child: Image.asset(
+                        "assets/images/search.png",
+                        width: 20,
+                        height: 20,
+                      ),
                     ),
-                  ),
-                  Text(
-                    "Search Store",
-                    style: TextStyle(
-                        color: TColor.secondaryText,
-                        fontSize: 14,
-                        fontWeight: FontWeight.w600),
-                  ),
-                ],
+                    Text(
+                      "Search Store",
+                      style: TextStyle(
+                          color: TColor.secondaryText,
+                          fontSize: 14,
+                          fontWeight: FontWeight.w600),
+                    ),
+                  ],
+                ),
               ),
             ),
           ),
