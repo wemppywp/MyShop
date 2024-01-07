@@ -273,9 +273,7 @@ class _ProductDetailsViewState extends State<ProductDetailsView> {
                               Icons.star,
                               color: Color(0xFFF3603F),
                             ),
-                            onRatingUpdate: (rating) {
-                              print(rating);
-                            },
+                            onRatingUpdate: (rating) {},
                           ),
                         ),
                         IconButton(

@@ -1,10 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:myshop/common/color_extension.dart';
-import 'package:myshop/common_widget/category_cell.dart';
 import 'package:myshop/common_widget/explore_cell.dart';
-import 'package:myshop/common_widget/product_cell.dart';
-import 'package:myshop/common_widget/section_view.dart';
-import 'package:myshop/view/home/product_details_view.dart';
 
 class ExploreView extends StatefulWidget {
   const ExploreView({super.key});

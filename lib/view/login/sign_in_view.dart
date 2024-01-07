@@ -18,7 +18,6 @@ class _SignInViewState extends State<SignInView> {
 
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
     countryCode = countryPicker.countryCodes
         .firstWhere((element) => element.name == "Indonesia");
@@ -103,7 +102,7 @@ class _SignInViewState extends State<SignInView> {
                                   child: countryCode.flagImage(),
                                 ),
                                 Text(
-                                  "${countryCode.dialCode}",
+                                  "$countryCode.dialCode",
                                   style: TextStyle(
                                     color: TColor.primaryText,
                                     fontSize: 18,
