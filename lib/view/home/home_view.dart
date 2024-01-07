@@ -3,6 +3,7 @@ import 'package:myshop/common/color_extension.dart';
 import 'package:myshop/common_widget/category_cell.dart';
 import 'package:myshop/common_widget/product_cell.dart';
 import 'package:myshop/common_widget/section_view.dart';
+import 'package:myshop/view/home/product_details_view.dart';
 
 class HomeView extends StatefulWidget {
   const HomeView({super.key});
@@ -189,7 +190,13 @@ class _HomeViewState extends State<HomeView> {
                         var pObj = exclusiveOfferArr[index] as Map? ?? {};
                         return ProductCell(
                           pObj: pObj,
-                          onPressed: () {},
+                          onPressed: () {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) =>
+                                        const ProductDetailsView()));
+                          },
                           onCart: () {},
                         );
                       }),
@@ -209,7 +216,13 @@ class _HomeViewState extends State<HomeView> {
                         var pObj = bestSellingArr[index] as Map? ?? {};
                         return ProductCell(
                           pObj: pObj,
-                          onPressed: () {},
+                          onPressed: () {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) =>
+                                        const ProductDetailsView()));
+                          },
                           onCart: () {},
                         );
                       }),
@@ -246,7 +259,13 @@ class _HomeViewState extends State<HomeView> {
                         var pObj = listArr[index] as Map? ?? {};
                         return ProductCell(
                           pObj: pObj,
-                          onPressed: () {},
+                          onPressed: () {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) =>
+                                        const ProductDetailsView()));
+                          },
                           onCart: () {},
                         );
                       }),
