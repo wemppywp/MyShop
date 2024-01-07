@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:myshop/common/color_extension.dart';
+import 'package:myshop/view/explore/explore_view.dart';
 import 'package:myshop/view/home/home_view.dart';
 
 class MainTabView extends StatefulWidget {
@@ -37,7 +38,7 @@ class _MainTabViewState extends State<MainTabView>
         controller: controller,
         children: [
           const HomeView(),
-          Container(),
+          const ExploreView(),
           Container(),
           Container(),
           Container(),
